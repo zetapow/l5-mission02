@@ -11,6 +11,7 @@ function validateDriverInput(age, experience) {
    if (!Number.isInteger(age) || !Number.isInteger(experience)) {
       return "Age and experience must be whole numbers";
    }
+
    if (age < MIN_AGE) return `The minimum driving age is ${MIN_AGE}`;
    if (age > MAX_AGE) return `The maximum driving age is ${MAX_AGE}`;
    if (experience < 0) return "Driving experience must be positive";
