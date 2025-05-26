@@ -24,6 +24,12 @@ git merge main
 ```
 Continue work
 
+Root folder
+- [concurrently](https://duckduckgo.com) to run multiple commands ('npm run dev' in frontend && 'nodemon server.js' in backend)
+```
+npm i concurrently
+```
+
 
 Backend
 
