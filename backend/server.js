@@ -2,10 +2,10 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 
-/* API routes */
-// const driverDiscountRoute = require("./api/driverDiscountRoute");
+/* API Routes */
+const driverDiscountRoute = require("./routes/driverDiscountRoute");
 
-const { calculateDiscount } = require("./calculateDiscount");
+/* API routes */
 
 const app = express();
 
@@ -15,7 +15,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static("public"));
 
-app.get("/", () => {
+app.get("/", (req, res) => {
    res.send("Insurance API");
 });
 
@@ -26,27 +26,9 @@ app.get("/", () => {
 // API3: Insurance quote API
 
 // API4: Discount API endpoint
+/* router under /api */
 // app.post("/apis/discount");
-app.post("/api/discount", (req, res) => {
-   console.log("discount request");
-   try {
-      const { age, experience } = req.body;
-
-      if (!age || !experience) {
-         return res
-            .status(400)
-            .json({ error: "Please input age and experience" });
-      }
-
-      // If string - convert to numbers
-
-      const result = calculateDiscount(Number(age), Number(experience));
-      res.json(result);
-   } catch (error) {
-      console.error(error);
-      res.status(500).json({ error: "Internal server error" });
-   }
-});
+app.use("/api", driverDiscountRoute);
 
 // Handle errors
 
