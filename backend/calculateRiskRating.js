@@ -15,11 +15,10 @@ function calculateRiskRating(input) {
    // Eliminate case-sensitivity
    const inputText = input.claim_history.toLowerCase();
 
-   // g - global, i - case-insensitive, \b - word boundary
-
    let rating = 0;
 
    keywords.forEach((keyword) => {
+      // g - global, i - case-insensitive, \b - word boundary
       const regex = new RegExp(`\\b${keyword}\\b`, "gi");
       const matchText = inputText.match(regex);
 
