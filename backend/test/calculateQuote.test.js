@@ -16,6 +16,10 @@ describe('Covert model and year of car into Car Value', () => {
         expect(calculateQuote("burger", 5)).toEqual({ error: 'Sorry, there has been an error' })
     })
 
+    test("ERROR Car value is larger than 10000", () => {
+        expect(calculateQuote(10001, 5)).toEqual({ error: 'Sorry, there has been an error'})
+    })
+
     test("ERROR Risk rating is out of scope", () => {
         expect(calculateQuote(6614, 6)).toEqual({ error: 'Sorry, there has been an error' })
     })
