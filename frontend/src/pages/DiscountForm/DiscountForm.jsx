@@ -28,10 +28,11 @@ export default function DiscountForm() {
          <form className={styles.form} onSubmit={handleSubmit}>
             <label htmlFor="age">Age</label>
             <input
+               id="age"
                type="number"
-               placeholder="Age"
+               placeholder="years"
                value={userInputs.age}
-               // Spread operator to keep previous inputs object
+               // Call existing state and only overide age property
                onChange={(event) =>
                   setUserInputs({ ...userInputs, age: event.target.value })
                }
@@ -40,9 +41,10 @@ export default function DiscountForm() {
             <label htmlFor="experience">Driving Experience</label>
             <input
                type="number"
-               placeholder="Driving Experience"
+               id="experience"
+               placeholder="years"
                value={userInputs.experience}
-               // Spread operator to keep previous inputs object
+               // Spread operator to keep age property
                onChange={(event) =>
                   setUserInputs({
                      ...userInputs,
@@ -59,10 +61,16 @@ export default function DiscountForm() {
          {/* Check if result exists before calling property. Display error or discount rating depending on result*/}
 
          {result?.error && <div className={styles.error}>{result.error}</div>}
-         {result?.discount_rate && (
-            <div className={styles.result}>
-               Your discount rate is: {result.discount_rate}%
+         {result?.discount_rate === 0 ? (
+            <div className={styles.noDiscount}>
+               ⚠️ You do not qualify for a discount
             </div>
+         ) : (
+            result?.discount_rate && (
+               <div className={styles.result}>
+                  ✅ Your discount rate is: {result.discount_rate}%
+               </div>
+            )
          )}
       </div>
    );
