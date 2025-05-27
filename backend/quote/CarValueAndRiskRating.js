@@ -1,0 +1,9 @@
+const INPUT_RULES = {
+    CAR_LIMIT: 10000,
+    MIN_RATING: 1,
+    MAX_RATING: 5,
+    MONTHS_IN_A_YEAR: 12,
+    PREMIUM_RATE: 100
+};
+
+module.exports = INPUT_RULES;
