@@ -1,6 +1,7 @@
 import "./App.css";
 import DiscountForm from "./pages/DiscountForm/DiscountForm";
 import RiskRatingForm from "./pages/RiskRating/RiskRatingForm";
+import QuoteForm from "./pages/Quote/Quote";
 
 function App() {
    return (
@@ -11,6 +12,9 @@ function App() {
          <h1>Generate insurance quotation</h1>
          <h1>Calculate insurance rate</h1>
          <DiscountForm />
+
+         <h1>Generate Monthly and Yearly Premium</h1>
+         <QuoteForm />
       </>
    );
 }
