@@ -1,16 +1,15 @@
 const {
    validateDriverInput,
 } = require("../backend/discount/validateDriverInput");
-// Seperate config for discounts
-// const { DISCOUNT_RULES } = require("./discount/discountRules");
 const {
    AGE_BRACKETS,
    EXPERIENCE_BRACKETS,
    MAXIMUM_DISCOUNT,
 } = require("./discount/discountRules");
 
+/** params - age (years), experience (years) */
 function calculateDiscount(age, experience) {
-   // function to validate inputs
+   // return error if inputs are invalid
    const inputError = validateDriverInput(age, experience);
    if (inputError) return { error: inputError };
 
@@ -30,14 +29,3 @@ function calculateDiscount(age, experience) {
 }
 
 module.exports = { calculateDiscount };
-
-/** Original calc */
-/*
-   // Initial discounts to pass initial test
-   if (age >= 25) discount += 5;
-   if (experience >= 5) discount += 5;
-
-   // Additional discounts to pass boundary test
-   if (age >= 40) discount += 5;
-   if (experience >= 10) discount += 5;
-   */
