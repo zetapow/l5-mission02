@@ -6,14 +6,14 @@ import QuoteForm from "./pages/Quote/Quote";
 function App() {
    return (
       <>
-         <h1>Calculate risk rating</h1>
+         <h2>Get car value</h2>
+         <h2>Calculate risk rating</h2>
          <RiskRatingForm />
 
-         <h1>Generate insurance quotation</h1>
-         <h1>Calculate insurance rate</h1>
+         <h2>Calculate insurance rate</h2>
          <DiscountForm />
 
-         <h1>Generate Monthly and Yearly Premium</h1>
+         <h2>Generate Monthly and Yearly Premium</h2>
          <QuoteForm />
       </>
    );
