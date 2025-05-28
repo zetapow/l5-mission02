@@ -5,6 +5,7 @@ const cors = require("cors");
 /* API Routes */
 const driverDiscountRoute = require("./routes/driverDiscountRoute");
 const riskRatingRoute = require("./routes/riskRatingRoute");
+const quoteRoute = require("./routes/QuoteRoute");
 
 /* API routes */
 
@@ -25,6 +26,7 @@ app.get("/", (req, res) => {
 app.use("/api", riskRatingRoute);
 
 // API3: Insurance quote API
+app.use("/api", quoteRoute);
 
 // API4: Discount API endpoint
 /* router under /api */
