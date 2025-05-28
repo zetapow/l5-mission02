@@ -24,6 +24,13 @@ describe("Convert driver's age and experience to discount rate", () => {
 - ![Jira Screenshot](/assets/images/jira-screen.png)
 - **Daily Standups:** 1600 on teams
 
+## Group 3
+| Name | Contribution |
+| --- | ----- |
+| [Afton Lim](https://github.com/AftonLim) | Quotation API | 
+| [Teancum Lopati](https://github.com/TLopati) | Car Value API | 
+| [Peter Zhou](https://github.com/zetapow) | Discount Rate API | 
+
 
 ## Repo setup
 - [concurrently](https://www.npmjs.com/package/concurrently) to run multiple commands ('npm run dev' in frontend && 'nodemon server.js' in backend)
