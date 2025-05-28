@@ -11,8 +11,7 @@ const riskRatingRoute = require("./routes/riskRatingRoute");
 const app = express();
 
 /*  Middleware - cors, json  */
-app.use(cors("http://localhost:5173"));
-// app.use(cors({ origin: "http://localhost:5173" }));
+app.use(cors({ origin: process.env.CORS_ORIGIN || "*" }));
 app.use(express.json());
 app.use(express.static("public"));
 
@@ -38,7 +37,6 @@ app.use((err, req, res) => {
    console.error(err.stack);
 });
 
-const PORT = 3000;
-app.listen(PORT, () => {
+app.listen(process.env.PORT, () => {
    console.log(`Server running on http://localhost:${PORT}`);
 });
