@@ -6,17 +6,14 @@ const { calculateRiskRating } = require("../calculateRiskRating");
 router.post("/risk-rating", (req, res) => {
    console.log("Risk rating request");
    try {
-      const { age, experience } = req.body;
-
-      if (!age || !experience) {
-         return res
-            .status(400)
-            .json({ error: "Please input age and experience" });
+      if (!req.body || typeof req.body !== "object") {
+         return res.status(400).json({ error: "body must be JSON" });
       }
 
       // If string - convert to numbers
 
-      const result = calculateDiscount(Number(age), Number(experience));
+      const result = calculateRiskRating(req.body);
+
       res.json(result);
    } catch (error) {
       console.error(error);

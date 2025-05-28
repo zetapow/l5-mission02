@@ -4,13 +4,14 @@ const cors = require("cors");
 
 /* API Routes */
 const driverDiscountRoute = require("./routes/driverDiscountRoute");
+const riskRatingRoute = require("./routes/riskRatingRoute");
 
 /* API routes */
 
 const app = express();
 
 /*  Middleware - cors, json  */
-app.use(cors());
+app.use(cors("http://localhost:5173"));
 // app.use(cors({ origin: "http://localhost:5173" }));
 app.use(express.json());
 app.use(express.static("public"));
@@ -22,6 +23,7 @@ app.get("/", (req, res) => {
 // API1: Car value API
 
 // API2: Risk rating API
+app.use("/api", riskRatingRoute);
 
 // API3: Insurance quote API
 
