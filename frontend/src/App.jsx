@@ -2,17 +2,17 @@ import "./App.css";
 import DiscountForm from "./pages/DiscountForm/DiscountForm";
 import RiskRatingForm from "./pages/RiskRating/RiskRatingForm";
 import QuoteForm from "./pages/Quote/Quote";
-import ClaimHistory from "./pages/ClaimHistory/claimHistory"
+import ClaimHistory from "./pages/ClaimHistory/claimHistory";
 import CarValue from "./pages/CarValue/carValue";
 
 function App() {
    return (
       <>
          <h1>Calculate Car value</h1>
-         <CarValue/>
+         <CarValue />
 
          <h1>Calculate claim history</h1>
-         <ClaimHistory/>
+         <ClaimHistory />
 
          <h1>Calculate risk rating</h1>
          <RiskRatingForm />

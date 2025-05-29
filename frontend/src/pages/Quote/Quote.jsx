@@ -1,9 +1,8 @@
 import { useState } from "react";
 import styles from "./Quote.module.css";
-import { calculateQuote } from "../../apis/calculateQuoteApi"
+import { calculateQuote } from "../../apis/calculateQuoteApi";
 
 export default function QuoteForm() {
-
    // State hooks for inputs and result
    const [userInputs, setUserInputs] = useState({
       car_value: "",
@@ -18,7 +17,10 @@ export default function QuoteForm() {
          userInputs.car_value,
          userInputs.risk_rating
       );
-      setResult(response);
+
+      // Merge conflict resolution: pick the version that expects `response.result`
+      // but fallback if response is already the result
+      setResult(response.result || response);
    }
 
    return (
@@ -54,15 +56,14 @@ export default function QuoteForm() {
             <button type="submit">Calculate Insurance Quote</button>
          </form>
 
-        {result?.error && <div className={styles.error}>{result.error}</div>}
+         {result?.error && <div className={styles.error}>{result.error}</div>}
 
-        {!result?.error && result?.monthly !== undefined && result?.yearly !== undefined && (
+         {!result?.error && result?.monthly !== undefined && result?.yearly !== undefined && (
             <div className={styles.result}>
-                Your monthly premium is: ${result.monthly} <br />
-                Your yearly premium is: ${result.yearly}
+               Your monthly premium is: ${result.monthly} <br />
+               Your yearly premium is: ${result.yearly}
             </div>
-        )}
-
+         )}
       </div>
    );
 }
