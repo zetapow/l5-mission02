@@ -17,9 +17,16 @@ export default function QuoteForm() {
          userInputs.car_value,
          userInputs.risk_rating
       );
+<<<<<<< HEAD
       console.log(response);
       setResult(response.result);
       // setResult({ monthly: 50, yearly: 600 });
+=======
+
+      // Merge conflict resolution: pick the version that expects `response.result`
+      // but fallback if response is already the result
+      setResult(response.result || response);
+>>>>>>> main
    }
 
    return (
@@ -57,6 +64,7 @@ export default function QuoteForm() {
 
          {result?.error && <div className={styles.error}>{result.error}</div>}
 
+<<<<<<< HEAD
          {!result?.error &&
             result?.monthly !== undefined &&
             result?.yearly !== undefined && (
@@ -65,6 +73,14 @@ export default function QuoteForm() {
                   Your yearly premium is: ${result.yearly}
                </div>
             )}
+=======
+         {!result?.error && result?.monthly !== undefined && result?.yearly !== undefined && (
+            <div className={styles.result}>
+               Your monthly premium is: ${result.monthly} <br />
+               Your yearly premium is: ${result.yearly}
+            </div>
+         )}
+>>>>>>> main
       </div>
    );
 }
