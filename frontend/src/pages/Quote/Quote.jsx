@@ -18,7 +18,7 @@ export default function QuoteForm() {
          userInputs.car_value,
          userInputs.risk_rating
       );
-      setResult(response);
+      setResult(response.result);
    }
 
    return (
